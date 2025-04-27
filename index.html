@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vivek 999 Sensitivity Generator</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: rgb(22, 243, 243);
+      
+    }
+
+    select, button {
+      width: 80%;
+      max-width: 300px;
+      padding: 15px;
+      margin: 10px 0;
+      background: #111;
+      border: 2px solid #0ff;
+      border-radius: 10px;
+      color: #0ff;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.3s;
+      text-shadow: 0 0 5px #0ff;
+    }
+
+    select:hover, button:hover {
+      background: #0ff;
+      color: #000;
+      text-shadow: none;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #ff0;
+      text-shadow: 0 0 10px #ff0, 0 0 20px #ff0;
+    }
+
+    .sensitivity-block {
+      margin-top: 10px;
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      select, button {
+        font-size: 0.9rem;
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1> Best Sensitivity Generator By Vivek 999</h1>
+
+  <select id="brandSelect">
+    <option value="">-- Select Your Mobile Brand --</option>
+    <option>Samsung</option>
+    <option>Redmi</option>
+    <option>Realme</option>
+    <option>iPhone</option>
+    <option>Poco</option>
+    <option>OnePlus</option>
+    <option>Vivo</option>
+    <option>Oppo</option>
+    <option>Infinix</option>
+    <option>Motorola</option>
+    <option>Techno</option>
+    <option>Micromax</option>
+    <option>IQOO</option>
+    <option>Asus</option>
+  </select>
+
+  <select id="ramSelect">
+    <option value="">-- Select Your RAM Size --</option>
+    <option>2GB</option>
+    <option>3GB</option>
+    <option>4GB</option>
+    <option>6GB</option>
+    <option>8GB</option>
+    <option>12GB</option>
+  </select>
+
+  <button onclick="generateSensitivity()">Get Sensitivity</button>
+
+  <div id="result"></div>
+
+  
+
+  <script>
+    function getRandomSensitivity() {
+      return Math.floor(Math.random() * (200 - 120 + 1)) + 120;
+    }
+
+    function generateSensitivity() {
+      const brand = document.getElementById('brandSelect').value;
+      const ram = document.getElementById('ramSelect').value;
+      const resultDiv = document.getElementById('result');
+
+      if (brand === "" || ram === "") {
+        resultDiv.innerHTML = "Please select your mobile brand and RAM!";
+      } else {
+        const general = getRandomSensitivity();
+        const redDot = getRandomSensitivity();
+        const twoX = getRandomSensitivity();
+        const fourX = getRandomSensitivity();
+        const freeLook = getRandomSensitivity();
+
+        resultDiv.innerHTML = `
+      
+          <div class="sensitivity-block">🎯 General: <span style="color:#0ff;">${general}</span></div>
+          <div class="sensitivity-block">🔴 Red Dot: <span style="color:#0ff;">${redDot}</span></div>
+          <div class="sensitivity-block">🔍 2x Scope: <span style="color:#0ff;">${twoX}</span></div>
+          <div class="sensitivity-block">🔭 4x Scope: <span style="color:#0ff;">${fourX}</span></div>
+          <div class="sensitivity-block">👀 Free Look: <span style="color:#0ff;">${freeLook}</span></div>
+        `;
+      }
+    }
+  </script>
+
+</body>
+</html>
